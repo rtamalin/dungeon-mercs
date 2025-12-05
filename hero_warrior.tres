@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterSheet" load_steps=2 format=3 uid="uid://fku2xhtruyk5"]
+
+[ext_resource type="Script" uid="uid://bpxts0msjwk8o" path="res://character_sheet.gd" id="1_cpxyi"]
+
+[resource]
+script = ExtResource("1_cpxyi")
+name = "Brian the Bard"
+metadata/_custom_type_script = "uid://bpxts0msjwk8o"

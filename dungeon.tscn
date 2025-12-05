@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc42gtek3q5sb"]
+
+[ext_resource type="Script" uid="uid://dmbgxmk21cig4" path="res://dungeon.gd" id="1_qu0b2"]
+[ext_resource type="MeshLibrary" uid="uid://bsbqt485w2xtt" path="res://dungeon_tiles.tres" id="2_noicg"]
+[ext_resource type="PackedScene" uid="uid://brnm87ish1qa3" path="res://player.tscn" id="2_orq0m"]
+[ext_resource type="PackedScene" uid="uid://de4xsh7xlog76" path="res://door_scene.tscn" id="3_my81p"]
+[ext_resource type="PackedScene" uid="uid://m5qvljm4y5ji" path="res://spike_trap.tscn" id="4_orq0m"]
+
+[node name="Dungeon" type="Node3D"]
+script = ExtResource("1_qu0b2")
+party_scene = ExtResource("2_orq0m")
+door_scene = ExtResource("3_my81p")
+trap_scene = ExtResource("4_orq0m")
+
+[node name="FloorPlan" type="GridMap" parent="."]
+mesh_library = ExtResource("2_noicg")
+cell_center_y = false

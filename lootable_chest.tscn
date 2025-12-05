@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://mcu7vty386ow"]
+
+[ext_resource type="Script" uid="uid://cop3euf4n33f7" path="res://lootable_chest.gd" id="1_4y64m"]
+[ext_resource type="Script" uid="uid://btn58tx75oocu" path="res://item_data.gd" id="2_7o1se"]
+[ext_resource type="Resource" uid="uid://cj2yjl4m7cmt8" path="res://basic_health_potion.tres" id="3_dkclf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evm6a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7o1se"]
+material = SubResource("StandardMaterial3D_evm6a")
+size = Vector3(0.6, 0.4, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkclf"]
+albedo_color = Color(0.78431374, 0.78431374, 0.2509804, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmk0v"]
+size = Vector3(0.6, 2, 0.4)
+
+[node name="LootableChest" type="AnimatableBody3D"]
+script = ExtResource("1_4y64m")
+contents = Array[ExtResource("2_7o1se")]([ExtResource("3_dkclf"), ExtResource("3_dkclf"), ExtResource("3_dkclf"), ExtResource("3_dkclf")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("BoxMesh_7o1se")
+surface_material_override/0 = SubResource("StandardMaterial3D_dkclf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_mmk0v")

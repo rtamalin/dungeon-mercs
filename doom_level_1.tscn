@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://betxcjp7abi81"]
+
+[ext_resource type="Script" uid="uid://mk8vd56mboi" path="res://doom_level_1.gd" id="1_kv3kb"]
+[ext_resource type="MeshLibrary" uid="uid://bsbqt485w2xtt" path="res://dungeon_tiles.tres" id="2_5dana"]
+[ext_resource type="PackedScene" uid="uid://brnm87ish1qa3" path="res://player.tscn" id="2_euhs6"]
+[ext_resource type="PackedScene" uid="uid://de4xsh7xlog76" path="res://door_scene.tscn" id="3_0reqp"]
+[ext_resource type="PackedScene" uid="uid://m5qvljm4y5ji" path="res://spike_trap.tscn" id="4_okyql"]
+[ext_resource type="PackedScene" uid="uid://mcu7vty386ow" path="res://lootable_chest.tscn" id="5_0reqp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_euhs6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0reqp"]
+sky_material = SubResource("ProceduralSkyMaterial_euhs6")
+
+[sub_resource type="Environment" id="Environment_okyql"]
+background_mode = 1
+background_color = Color(0, 0, 0.0627451, 1)
+sky = SubResource("Sky_0reqp")
+ambient_light_source = 2
+ambient_light_color = Color(0, 0, 0.0627451, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[node name="DoomLevel1" type="Node3D"]
+script = ExtResource("1_kv3kb")
+party_scene = ExtResource("2_euhs6")
+door_scene = ExtResource("3_0reqp")
+trap_scene = ExtResource("4_okyql")
+chest_scene = ExtResource("5_0reqp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_okyql")
+
+[node name="DoomFloor1" type="GridMap" parent="."]
+mesh_library = ExtResource("2_5dana")
+cell_center_y = false

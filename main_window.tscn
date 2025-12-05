@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4y1li10p56la"]
+
+[ext_resource type="Script" uid="uid://ba7cdat0u0jpy" path="res://main_window.gd" id="1_bfu0d"]
+[ext_resource type="Script" uid="uid://bjxosl2kqob6s" path="res://party_panel.gd" id="2_sq7ho"]
+[ext_resource type="PackedScene" uid="uid://dvj28l5ur4bqf" path="res://party_member_row.tscn" id="3_l06f4"]
+[ext_resource type="Script" uid="uid://cv8u5dumoe1jn" path="res://message_log.gd" id="4_l06f4"]
+[ext_resource type="PackedScene" uid="uid://565rr5djiio8" path="res://inventory_window.tscn" id="5_bfu0d"]
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfu0d")
+
+[node name="MainLayout" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftColumn" type="VBoxContainer" parent="MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainLayout/LeftColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+stretch = true
+
+[node name="MainView" type="SubViewport" parent="MainLayout/LeftColumn/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(848, 494)
+render_target_update_mode = 4
+
+[node name="MessageLog" type="Panel" parent="MainLayout/LeftColumn"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+script = ExtResource("4_l06f4")
+
+[node name="Messages" type="RichTextLabel" parent="MainLayout/LeftColumn/MessageLog"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+scroll_following = true
+
+[node name="PartyPanel" type="Panel" parent="MainLayout"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_sq7ho")
+row_scene = ExtResource("3_l06f4")
+
+[node name="PartyList" type="VBoxContainer" parent="MainLayout/PartyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainLayout/PartyPanel/PartyList"]
+layout_mode = 2
+text = "Party Stats"
+horizontal_alignment = 1
+
+[node name="InventoryWindow" parent="." instance=ExtResource("5_bfu0d")]
+layout_mode = 1

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cj2yjl4m7cmt8"]
+
+[ext_resource type="Script" uid="uid://btn58tx75oocu" path="res://item_data.gd" id="1_58yye"]
+
+[resource]
+script = ExtResource("1_58yye")
+name = "Basic Health Potion"
+description = "A basic health potion that heals 10 HP."
+is_consumable = true
+effect = "heal"
+magnitude = 10
+metadata/_custom_type_script = "uid://btn58tx75oocu"

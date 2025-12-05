@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://m5qvljm4y5ji"]
+
+[ext_resource type="Script" uid="uid://bdklu7newag5c" path="res://spike_trap.gd" id="1_w2bc5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fkc1t"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tqga"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70ean"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[node name="SpikeTrap" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_w2bc5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fkc1t")
+surface_material_override/0 = SubResource("StandardMaterial3D_3tqga")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_70ean")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://brnm87ish1qa3"]
+
+[ext_resource type="Script" uid="uid://p4kgh5o0dsvo" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4flbx"]
+size = Vector3(1, 2, 1)
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="FrontRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+
+[node name="RearRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+
+[node name="LeftRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(-2, 0, 0)
+
+[node name="RightRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
+
+[node name="HitBox" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("BoxShape3D_4flbx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+light_color = Color(1, 0.6666667, 0.33333334, 1)
+light_energy = 1.5
+shadow_enabled = true
+omni_range = 15.0

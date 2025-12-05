@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm5ffyf0llks"]
+
+[ext_resource type="Script" uid="uid://cgtlea4jdxi1x" path="res://item_slot.gd" id="1_n6cxc"]
+
+[node name="ItemSlot" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Empty"
+alignment = 0
+script = ExtResource("1_n6cxc")
